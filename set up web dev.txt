@@ -1,0 +1,6 @@
+--npm create vite@latest fh-rep
+
+running server
+C:\Users\DELL\Project-Port\server> node index.js   
+running client
+C:\Users\DELL\Project-Port\fh-rep> npm run dev
