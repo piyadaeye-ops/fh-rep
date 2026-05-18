@@ -1,0 +1,330 @@
+
+body {
+  height: 100vw;
+  width: 100vw;
+
+  background: #ffff;
+ background-image: url('../assets/bg.svg'); /* ใส่ path ของไฟล์ svg */
+  background-repeat: no-repeat;
+  background-size:cover; /* หรือ contain ตามความเหมาะสม */
+  background-position: center;
+  overflow: hidden;
+}
+
+.Header {
+  /* display: flex; */
+  justify-content: space-between;
+}
+
+.header-box{
+  box-sizing: border-box;
+  position: absolute;
+  width: 90%;
+  height: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 14px;
+
+  display: flex ; 
+  
+  justify-content: space-between; 
+  align-items: center;            
+  padding: 0 20px;
+
+  background: linear-gradient(90deg, rgba(254, 235, 201, 0.2) 40.38%, rgba(255, 252, 246, 0.2) 80.77%), #FFFCF6;
+  border: 1px solid rgba(0, 0, 0, 0.22);
+  border-radius: 50px;
+
+  
+    z-index: 999;
+}
+.header-box-icon-left{
+  position: relative;
+  /* margin-left: auto;  */
+  
+  display: flex;
+  gap: 7px; 
+  align-items: center;
+}
+
+.header-box-icon-right{
+  position: relative;
+  margin-left: auto; 
+  
+  display: flex;
+  gap: 7px; 
+  align-items: center;
+}
+.icon-bg{
+/* position: absolute; */
+width: 30px;  /* ปรับขนาดให้พอดีกับ Header */
+  height: 30px;
+  background: #FEEBC9;
+  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1); /* ลดความเข้มเงาหน่อยจะดูแพงขึ้น */
+  border-radius: 50%; /* ทำให้เป็นวงกลม */
+
+  /* จัดไอคอนที่อยู่ข้างในให้อยู่ตรงกลางวงกลม */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon-btn {
+  background: none;      /* ลบพื้นหลังสีเทา */
+  border: none;          /* ลบเส้นขอบ */
+  padding: px;          /* เพิ่มระยะห่างรอบไอคอน */
+  cursor: pointer;       /* เปลี่ยนเมาส์เป็นรูปมือ */
+  display: flex;         /* ช่วยจัดไอคอนให้อยู่กลางปุ่ม */
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s; /* เพิ่ม Effect ตอนเอาเมาส์ไปชี้ */
+}
+
+.icon-bg:hover {
+  opacity: 0.7; 
+  background: #ffa509;   
+  width: 31px;  /* ปรับขนาดให้พอดีกับ Header */
+  height: 31px;      /* ให้ปุ่มจางลงนิดหน่อยตอน Hover */
+}
+
+.dropdown-wrapper {
+  position: relative; /* เพื่อให้เมนูเด้งอ้างอิงจากจุดนี้ */
+  display: inline-block;
+}
+
+.tab-dropdown-label {
+  position: absolute;
+  top: 35px;      /* ระยะห่างจากปุ่มลงมาข้างล่าง */
+  left: 0;       /* ให้เมนูชิดขวาของปุ่ม */
+  background: white;
+  min-width: 120px;
+  border-radius: 8px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.15);
+  padding: 8px 0;
+  z-index: 100;   /* ให้อยู่เหนือชั้นอื่น */
+  border: 1px solid #f0f0f0;
+
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px); /* เลื่อนขึ้นไปข้างบนนิดนึง */
+  transition: all 0.3s ease-in-out; /* กำหนดความเร็วและจังหวะ */
+  z-index: 100;
+}
+.tab-dropdown-label.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0); /* เลื่อนกลับมาตำแหน่งปกติ */
+}
+
+.tab-dropdown-item {
+  padding: 10px 16px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.tab-dropdown-item:hover {
+  background: #fff5e6; /* สีส้มอ่อนๆ ล้อกับปุ่มเดิม */
+  color: #ffa509;
+}
+
+.dropdown-label {
+  position: absolute;
+  top: 35px;      /* ระยะห่างจากปุ่มลงมาข้างล่าง */
+  right: 0;       /* ให้เมนูชิดขวาของปุ่ม */
+  background: white;
+  min-width: 120px;
+  border-radius: 8px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.15);
+  padding: 8px 0;
+  z-index: 100;   /* ให้อยู่เหนือชั้นอื่น */
+  border: 1px solid #f0f0f0;
+
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px); /* เลื่อนขึ้นไปข้างบนนิดนึง */
+  transition: all 0.3s ease-in-out; /* กำหนดความเร็วและจังหวะ */
+  z-index: 100;
+}
+
+.dropdown-label.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0); /* เลื่อนกลับมาตำแหน่งปกติ */
+}
+
+.dropdown-item {
+  padding: 10px 16px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.dropdown-item:hover {
+  background: #fff5e6; /* สีส้มอ่อนๆ ล้อกับปุ่มเดิม */
+  color: #ffa509;
+}
+
+.dropdown-item.logout {
+  color: #ff4d4f;
+  border-top: 1px solid #eee;
+}
+
+.card {
+  padding: 10px;
+  margin: 10px;
+  background: #f3e8d7;
+}
+/* บล็อก Dropdown แจ้งเตือน */
+.noti-dropdown {
+  position: absolute;
+  top: 35px;
+  right: 0;
+  width: 250px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  
+  /* 🌟 หัวใจสำคัญของ Transition */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px); /* เลื่อนขึ้นไปข้างบนนิดนึง */
+  transition: all 0.3s ease-in-out; /* กำหนดความเร็วและจังหวะ */
+  z-index: 100;
+}
+
+.noti-dropdown.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0); /* เลื่อนกลับมาตำแหน่งปกติ */
+}
+
+.noti-header {
+  padding: 10px 15px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #eee;
+  font-weight: bold;
+  font-size: 14px;
+  color: #333;
+}
+
+.noti-list {
+  max-height: 300px; /* ถ้างานเยอะให้ scroll ได้ */
+  overflow-y: auto;
+}
+
+.noti-item {
+  padding: 12px 15px;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background 0.2s;
+}
+
+.noti-item:hover {
+  background-color: #fff5f5;
+}
+
+.noti-detail {
+  margin: 0;
+  font-size: 13px;
+  color: #555;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* ตัดคำถ้างานยาวเกินไป */
+}
+
+.noti-date {
+  font-size: 11px;
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.noti-empty {
+  padding: 20px;
+  text-align: center;
+  color: #999;
+  font-size: 13px;
+}
+.noti-badge {
+  position: absolute;
+  top: -5px;      /* ปรับตำแหน่งขึ้นด้านบน */
+  right: -5px;    /* ปรับตำแหน่งไปทางขวา */
+  background-color: #ff4d4d; /* สีแดงแจ้งเตือน */
+  color: white;
+  font-size: 8px;
+  font-weight: bold;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white; /* เพิ่มขอบสีขาวให้เด่นขึ้น */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Notice Bar */
+.notice-bar {
+  background-color: white;
+  width: 100%;
+  padding: 15px 30px;
+  border-radius: 30px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  display: flex; /* จัดให้ Notices! อยู่หน้าข้อความวิ่ง */
+  align-items: center;
+  gap: 20px;
+  overflow: hidden;
+}
+
+.notice-title {
+  color: red;
+  font-weight: bold;
+  font-size: 1.2rem;
+  white-space: nowrap; /* ไม่ให้คำว่า Notices! ขึ้นบรรทัดใหม่ */
+  z-index: 2; /* ให้อยู่เหนือข้อความวิ่ง */
+  background: white; /* บังข้อความวิ่งที่ไหลมาซ้อนด้านหลัง */
+  padding-right: 10px;
+}
+
+.notice-content-wrapper {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ข้อความที่วิ่ง */
+.notice-text-scroll {
+  display: inline-block;
+  white-space: nowrap;
+  font-size: 16px;
+  color: #555;
+  padding-left: 100%; /* เริ่มวิ่งจากขอบขวาสุด */
+  animation: scroll-text 20s linear infinite; /* วิ่งต่อเนื่องตลอดเวลา */
+}
+
+/* กำหนดการเคลื่อนที่ */
+@keyframes scroll-text {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* แถม: เมื่อเอาเมาส์วาง ให้ข้อความหยุดวิ่งเพื่อให้คนอ่านได้ง่ายขึ้น */
+.notice-content-wrapper:hover .notice-text-scroll {
+  animation-play-state: paused;
+  cursor: pointer;
+}
+
+.version-text {
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  font-size: 10px;
+  color: #888;
+}

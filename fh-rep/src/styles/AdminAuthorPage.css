@@ -1,0 +1,50 @@
+.admin-table-container {
+    padding: 20px;
+    padding-top: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.admin-header h1 {
+    color: #333;
+    padding-top: 30px;
+    margin-bottom: 5px;
+}
+
+.table-wrapper {
+    margin-top: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin-table th, .admin-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.admin-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+}
+
+.role-badge {
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+.role-badge.approved { background-color: #d1e7dd; color: #0f5132; }
+.role-badge.pending { background-color: #e2e3e5; color: #41464b; }
+
+.approve-btn-unapp { background-color: #ffc107; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; margin-right: 5px; }
+.approve-btn-app { background-color: #64bc7d; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; margin-right: 5px; }
+.delete-btn { background-color: #dc3545; border: none; padding: 6px 12px; border-radius: 4px; color: white; cursor: pointer; }

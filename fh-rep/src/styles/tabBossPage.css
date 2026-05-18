@@ -1,0 +1,136 @@
+/* 🌟 เพิ่มคลาสนี้เข้าไปใน CSS เพื่อทำหน้าที่จัดแถวหน้า Boss ให้แยกซ้าย-ขวา */
+.boss-container-wrapper {
+  display: flex;       /* บังคับให้ลูกๆ (Sidebar กับ Main) เรียงขนานกันแนวนอน */
+  gap: 20px;          /* ช่องไฟระยะห่างระหว่าง แผงเมนู และ ตารางงาน */
+  width: 100%;
+  align-items: flex-start; /* บังคับให้กล่องไม่ยืดโย้สูงเกินจริง */
+}
+
+/* ปรับปรุง .boss-container เพิ่มเติม */
+.boss-container {
+  width: 100%;
+  box-sizing: border-box;         
+  padding: 20px;
+  padding-top: 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.boss-side-container{
+  
+  background-color: white;
+  min-height: 65vh;
+  width: 250px;
+  /* height: 100%; */
+  border-radius: 20px;
+  padding: 20px;
+
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+
+}
+
+.menu-boss-management{
+  display: flex;
+  padding-top: 3px;
+   flex-direction: column; 
+  gap: 15px;
+  margin-top: 20px;
+  max-height: 500px; /* จำกัดความสูง */
+  overflow-y: auto;  /* ให้เลื่อนขึ้นลงได้ถ้าสมาชิกเยอะ */
+  padding-right: 5px;
+}
+
+.menu-boss-management::-webkit-scrollbar {
+  width: 5px;
+}
+.menu-boss-management::-webkit-scrollbar-thumb {
+  background: #eee;
+  border-radius: 10px;
+}
+
+
+.menu-group-wrapper {
+  margin-bottom: 2px;
+  width: 100%;
+
+  }
+
+/* เมนูหลัก */
+.main-menu-item {
+  background-color: #FFF2DF; /* สีเนื้อตามดีไซน์เดิมของคุณ */
+  padding: 8px ; 
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s;
+
+  position: relative;
+  height: 20px;
+}
+
+.main-menu-item:hover {
+  background-color: #FFE6C1;
+}
+
+/* สไตล์เมื่อเมนูหลักถูกกดเปิด */
+.main-menu-item.active-item {
+  border-bottom-left-radius: 0px;  /* ตัดมุมล่างออกเพื่อให้เชื่อมกับกล่องย่อยสวยๆ */
+  border-bottom-right-radius: 0px;
+  background-color: #FFE6C1;
+}
+
+/* ไอคอนลูกศรหมุน */
+.arrow-icon {
+  font-size: 10px;
+  color: #888;
+  transition: transform 0.3s;
+}
+.arrow-icon.open {
+  transform: rotate(90deg); /* หมุนลูกศรลงล่างเมื่อเปิดเมนู */
+}
+
+/* 🌟 เทคนิคการสไลด์เลื่อนลงมา (Smooth Dropdown Accordion) */
+.submenu-container {
+  max-height: 0;            /* เริ่มต้นซ่อนไว้ด้วยความสูง 0 */
+  overflow: hidden;         /* บล็อกเนื้อหาข้างในไม่ให้ล้นออก */
+  transition: max-height 0.4s ease-out, padding 0.3s ease; /* เอฟเฟกต์การสไลด์ */
+  background-color: #FFFDF9; /* สีจางกว่าเมนูหลักนิดหน่อย */
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border: 1px solid transparent;
+  border-top: none;
+  padding: 0 20px;          /* เริ่มต้น padding แนวตั้งเป็น 0 */
+}
+
+/* 🌟 เมื่อสั่งโชว์ Submenu ให้ขยายความสูงสูงสุดออกมารับเนื้อหา */
+.submenu-container.show-submenu {
+  max-height: 300px;        /* ใส่ความสูงเผื่อไว้ให้คลุมจำนวน Submenu (เช่น 300px) */
+  padding: 10px 20px;       /* เปิดพื้นที่ padding ให้ตัวหนังสือมีช่องไฟ */
+  border-color: rgba(0, 0, 0, 0.05);
+ 
+}
+
+/* รายการย่อยแต่ละรายการ */
+.submenu-item {
+  
+  
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.submenu-item:hover {
+  background-color: #FFF2DF;
+  color: #E68A00; /* เปลี่ยนสีตัวอักษรเมื่อ Hover */
+}
+.main-tasks {
+  background-color: white;
+  flex: 1;            /* 🌟 ตัวสำคัญ! สั่งให้ตารางขยายความกว้างเต็มพื้นที่ที่เหลืออยู่ฝั่งขวาทั้งหมด */
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  box-sizing: border-box;
+  position: relative; 
+  padding-bottom: 80px;
+}

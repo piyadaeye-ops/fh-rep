@@ -1,0 +1,80 @@
+.home-container {
+  /* padding: 100px; */
+  padding: 20px;
+    padding-top: 90px;
+    max-width: 1200px;
+  margin: 0 auto;
+  
+  
+  
+  /* position: relative;
+  min-height: 80vh; */
+  
+}
+
+/* Notice Bar */
+.notice-bar {
+  background-color: white;
+  width: 90%;
+  position: absolute;
+  bottom: 14px;
+  left: 5%;
+  padding: 10px 30px;
+  border-radius: 30px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  display: flex; /* จัดให้ Notices! อยู่หน้าข้อความวิ่ง */
+  align-items: center;
+  gap: 20px;
+  overflow: hidden;
+}
+
+.notice-title {
+  color: red;
+  font-weight: bold;
+  font-size: 1.2rem;
+  white-space: nowrap; /* ไม่ให้คำว่า Notices! ขึ้นบรรทัดใหม่ */
+  z-index: 2; /* ให้อยู่เหนือข้อความวิ่ง */
+  background: white; /* บังข้อความวิ่งที่ไหลมาซ้อนด้านหลัง */
+  padding-right: 10px;
+}
+
+.notice-content-wrapper {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ข้อความที่วิ่ง */
+.notice-text-scroll {
+  display: inline-block;
+  white-space: nowrap;
+  font-size: 16px;
+  color: #555;
+  padding-left: 100%; /* เริ่มวิ่งจากขอบขวาสุด */
+  animation: scroll-text 20s linear infinite; /* วิ่งต่อเนื่องตลอดเวลา */
+}
+
+/* กำหนดการเคลื่อนที่ */
+@keyframes scroll-text {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* แถม: เมื่อเอาเมาส์วาง ให้ข้อความหยุดวิ่งเพื่อให้คนอ่านได้ง่ายขึ้น */
+.notice-content-wrapper:hover .notice-text-scroll {
+  animation-play-state: paused;
+  cursor: pointer;
+}
+
+.version-text {
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  font-size: 10px;
+  color: #888;
+}
