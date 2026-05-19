@@ -1,9 +1,9 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
+import express from "express"
+import mongoose from "mongoose"
+import cors from "cors"
+import dotenv from "dotenv"
 const bcrypt = require('bcryptjs');
-// บอก Node ว่าไฟล์ .env แอบอยู่ในโฟลเดอร์ server นะ
-require('dotenv').config({ path: '../server/.env' });
+
 dotenv.config()
 
 const app = express()
