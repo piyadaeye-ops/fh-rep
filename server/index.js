@@ -6,7 +6,13 @@ import dotenv from "dotenv"
 dotenv.config()
 
 const app = express()
-app.use(cors())
+app.use(cors({
+  origin: [
+    'https://fh-rep-cwwj.vercel.app', // 👈 ใส่ลิงก์เว็บหน้าบ้าน Vercel ของคุณตรงนี้
+    'http://localhost:5173'            // สำหรับรันเทสในคอมเครื่องตัวเอง
+  ],
+  credentials: true
+}));
 app.use(express.json())
 
 
