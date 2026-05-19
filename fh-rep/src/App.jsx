@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'; // เพิ่ม useEffect ตรงนี้
-import Header from './components/Header';
+import Header from './components/header';
 import Footer from './components/footer';
 import LoginPage from './pages/logInPage';
 import HomePage from './pages/homePage';
