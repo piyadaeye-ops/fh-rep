@@ -57,7 +57,7 @@ function HomePage({ setPage, setIsLoggedIn, user }) {
   useEffect(() => {
     const fetchMembers = async () => {
       try {
-        const response = await fetch('${import.meta.env.VITE_API_URL}/users'); 
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/users`); 
         const data = await response.json();
         setMembers(data);
       } catch (error) {
